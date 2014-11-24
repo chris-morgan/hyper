@@ -11,11 +11,11 @@ pub use self::StatusClass::*;
 /// This enum is absolutely exhaustive, covering all 500 possible values (100–599).
 ///
 /// As this is a C‐style enum with each variant having a corresponding value, you may use the likes
-/// of `Continue as u16` to retreive the value `100u16`. Normally, though, you should not need to do
-/// any such thing; just use the status code as a `StatusCode`.
+/// of `Continue as u16` to retreive the value `100u16`. Normally, though, you should not need to
+/// do any such thing; just use the status code as a `StatusCode`.
 ///
-/// If you encounter a status code that you do not know how to deal with, you should treat it as the
-/// `x00` status code—e.g. for code 123, treat it as 100 (Continue). This can be achieved with
+/// If you encounter a status code that you do not know how to deal with, you should treat it as
+/// the `x00` status code—e.g. for code 123, treat it as 100 (Continue). This can be achieved with
 /// `self.class().default_code()`:
 ///
 /// ```rust
@@ -1099,8 +1099,8 @@ impl StatusCode {
 
     /// Get the standardised `reason-phrase` for this status code.
     ///
-    /// This is mostly here for servers writing responses, but could potentially have application at
-    /// other times.
+    /// This is mostly here for servers writing responses, but could potentially have application
+    /// at other times.
     ///
     /// The reason phrase is defined as being exclusively for human readers. You should avoid
     /// deriving any meaning from it at all costs.
@@ -1660,8 +1660,8 @@ impl fmt::Show for StatusCode {
     }
 }
 
-// Specified manually because the codegen for derived is slow (at the time of writing on the machine
-// of writing, 1.2 seconds) and verbose (though the optimiser cuts it down to size).
+// Specified manually because the codegen for derived is slow (at the time of writing on the
+// machine of writing, 1.2 seconds) and verbose (though the optimiser cuts it down to size).
 impl PartialEq for StatusCode {
     #[inline]
     fn eq(&self, other: &StatusCode) -> bool {
